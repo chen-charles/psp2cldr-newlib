@@ -472,7 +472,6 @@ case "${host}" in
 	;;
   arm*vita*)
 	sys_dir=vita
-	signal_dir=
 	;;
   arm*-*-*)
 	newlib_cflags="${newlib_cflags} -D_COMPILING_NEWLIB"
