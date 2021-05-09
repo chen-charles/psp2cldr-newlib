@@ -51,7 +51,6 @@ CONFIG_CLEAN_VPATH_FILES =
 LIBRARIES = $(noinst_LIBRARIES)
 ARFLAGS = cru
 lib_a_AR = $(AR) $(ARFLAGS)
-@MAY_SUPPLY_SYSCALLS_TRUE@am__DEPENDENCIES_1 = syscalls.o
 am_lib_a_OBJECTS =
 lib_a_OBJECTS = $(am_lib_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
@@ -171,11 +170,10 @@ AUTOMAKE_OPTIONS = cygnus
 INCLUDES = $(NEWLIB_CFLAGS) $(CROSS_CFLAGS) $(TARGET_CFLAGS)
 AM_CCASFLAGS = $(INCLUDES)
 noinst_LIBRARIES = lib.a
-@MAY_SUPPLY_SYSCALLS_FALSE@extra_objs = 
-@MAY_SUPPLY_SYSCALLS_TRUE@extra_objs = syscalls.o # add more object files here if you split up
+extra_objs = syscalls.o init_fini.o psp2cldr_internals.o
 lib_a_SOURCES = 
 lib_a_LIBADD = $(extra_objs)
-EXTRA_lib_a_SOURCES = syscalls.c crt0.c # add more source files here if you split up
+EXTRA_lib_a_SOURCES = syscalls.c crt0.c init_fini.c psp2cldr_internals.c # add more source files here if you split up
 lib_a_DEPENDENCIES = $(extra_objs)      # syscalls.c into multiple files
 lib_a_CCASFLAGS = $(AM_CCASFLAGS)
 lib_a_CFLAGS = $(AM_CFLAGS)
@@ -250,6 +248,18 @@ lib_a-crt0.o: crt0.c
 
 lib_a-crt0.obj: crt0.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-crt0.obj `if test -f 'crt0.c'; then $(CYGPATH_W) 'crt0.c'; else $(CYGPATH_W) '$(srcdir)/crt0.c'; fi`
+
+lib_a-init_fini.o: init_fini.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-init_fini.o `test -f 'init_fini.c' || echo '$(srcdir)/'`init_fini.c
+
+lib_a-init_fini.obj: init_fini.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-init_fini.obj `if test -f 'init_fini.c'; then $(CYGPATH_W) 'init_fini.c'; else $(CYGPATH_W) '$(srcdir)/init_fini.c'; fi`
+
+lib_a-psp2cldr_internals.o: psp2cldr_internals.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-psp2cldr_internals.o `test -f 'psp2cldr_internals.c' || echo '$(srcdir)/'`psp2cldr_internals.c
+
+lib_a-psp2cldr_internals.obj: psp2cldr_internals.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-psp2cldr_internals.obj `if test -f 'psp2cldr_internals.c'; then $(CYGPATH_W) 'psp2cldr_internals.c'; else $(CYGPATH_W) '$(srcdir)/psp2cldr_internals.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -417,7 +427,7 @@ uninstall-am:
 	uninstall-am
 
 
-@MAY_SUPPLY_SYSCALLS_TRUE@all: crt0.o
+all: crt0.o
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

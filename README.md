@@ -33,7 +33,7 @@ cd ../..
 mkdir newlib-build
 cd newlib-build
 
-CFLAGS_FOR_TARGET="-g -O2 -fPIC" ../newlib-cygwin/configure --prefix=/root/newlib-build/out --target=arm-vita-eabi
+../newlib-cygwin/configure "CFLAGS_FOR_TARGET=-g -O2 -fPIC -ffunction-sections -fdata-sections" --prefix=/root/newlib-build/out --target=arm-vita-eabi --enable-newlib-io-long-long --enable-newlib-register-fini --disable-newlib-supplied-syscalls --disable-nls
 make && make install
 
 # ideally you need "-lgcc", but libgcc.a is not compiled with "-fPIC" ...
