@@ -8,7 +8,7 @@ extra_objs = syscalls.o init_fini.o psp2cldr_internals.o
 
 lib_a_SOURCES =
 lib_a_LIBADD = $(extra_objs)
-EXTRA_lib_a_SOURCES = syscalls.c crt0.c init_fini.c psp2cldr_internals.c # add more source files here if you split up
+EXTRA_lib_a_SOURCES = syscalls.c crt0.c init_fini.c psp2cldr_internals.c mlock.c # add more source files here if you split up
 lib_a_DEPENDENCIES = $(extra_objs)      # syscalls.c into multiple files
 lib_a_CCASFLAGS = $(AM_CCASFLAGS)
 lib_a_CFLAGS = $(AM_CFLAGS)
