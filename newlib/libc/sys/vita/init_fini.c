@@ -1,3 +1,5 @@
+#include <pthread.h>
+
 #include <sys/psp2cldr_internal.h>
 #include <sys/psp2cldr_tls.h>
 
@@ -11,7 +13,7 @@ int __psp2cldr_init_newlib(void)
     _REENT_INIT_PTR(&tls->reent);
 
     /* malloc and all other utilities are now up */
-    return 0;
+    return pthread_init();
 }
 
 int __psp2cldr_fini_newlib(void)
