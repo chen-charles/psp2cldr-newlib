@@ -1,4 +1,5 @@
 extern void exit(int);
+int _init_signal(void);
 int main(int argc, const char *argv[]);
 
 /* The maximum number of arguments that can be passed to main(). */
@@ -10,6 +11,11 @@ int main(int argc, const char *argv[]);
  */
 void _start(unsigned int args, void *argp)
 {
+    if (_init_signal() != 0)
+    {
+        exit(0x12345678);
+    }
+
     char *argv[ARGC_MAX + 1] = {""}; // Program name
     int argc = 1;
     int loc = 0;

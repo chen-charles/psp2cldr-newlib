@@ -1,16 +1,17 @@
-#include "common.h"
-#include "psp2cldr_internals.h"
+#include <sys/psp2cldr_internal.h>
+#include <sys/psp2cldr_tls.h>
 
-int _init_signal(void);
+#include <string.h>
 
 int __psp2cldr_init_newlib(void)
 {
     /* __getreent currently doesn't know what to return */
-    ThreadLocalStorage *tls = __psp2cldr__internal_tls_ctrl(0);
+    PSP2CLDR_TLS *tls = __psp2cldr__internal_tls_ctrl(0);
+    memset(tls, 0, PSP2CLDR_TLS_SIZE);
     _REENT_INIT_PTR(&tls->reent);
-    /* malloc and all other utilities are now up */
 
-    return _init_signal();
+    /* malloc and all other utilities are now up */
+    return 0;
 }
 
 int __psp2cldr_fini_newlib(void)
@@ -21,6 +22,6 @@ int __psp2cldr_fini_newlib(void)
 
 struct _reent *__getreent(void)
 {
-    ThreadLocalStorage *tls = __psp2cldr__internal_tls_ctrl(0);
+    PSP2CLDR_TLS *tls = __psp2cldr__internal_tls_ctrl(0);
     return &tls->reent;
 }

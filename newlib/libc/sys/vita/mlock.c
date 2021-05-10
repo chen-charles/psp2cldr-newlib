@@ -1,4 +1,4 @@
-#include "psp2cldr_internals.h"
+#include <sys/psp2cldr_internal.h>
 
 #include <malloc.h>
 void __malloc_lock(struct _reent *reent)

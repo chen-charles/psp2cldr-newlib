@@ -7,7 +7,7 @@
 #include <sys/unistd.h>
 #include <sys/wait.h>
 
-#include "common.h"
+#include <sys/psp2cldr_common.h>
 
 int _execve(const char *__path, char *const __argv[], char *const __envp[])
 {
