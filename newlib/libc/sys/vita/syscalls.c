@@ -59,3 +59,26 @@ pid_t PSP2CLDR_STUB _wait(int *status) { UDF_TRAP; }
 _READ_WRITE_RETURN_TYPE PSP2CLDR_STUB _write(int __fd, const void *__buf, size_t __nbyte) { UDF_TRAP; }
 int PSP2CLDR_STUB _isatty(int fd) { UDF_TRAP; }
 int PSP2CLDR_STUB _gettimeofday(struct timeval *__p, void *__tz) { UDF_TRAP; }
+
+#include "psp2cldr_internals.h"
+
+void __malloc_lock(struct _reent *reent)
+{
+    __psp2cldr__internal_call_sym("__malloc_lock");
+}
+
+void __malloc_unlock(struct _reent *reent)
+{
+    __psp2cldr__internal_call_sym("__malloc_unlock");
+}
+
+#include <envlock.h>
+void __env_lock(struct _reent *reent)
+{
+    __psp2cldr__internal_call_sym("__env_lock");
+}
+
+void __env_unlock(struct _reent *reent)
+{
+    __psp2cldr__internal_call_sym("__env_unlock");
+}

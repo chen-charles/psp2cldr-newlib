@@ -5,6 +5,9 @@
 
 /* internal routines provided by psp2cldr prior to loading, see psp2cldr's docs. for their usages */
 
-void *__attribute__((naked)) __psp2cldr__internal_tls_ctrl(uint32_t ctrl); // tls has a size of 0x1000
+void *PSP2CLDR_STUB __psp2cldr__internal_tls_ctrl(uint32_t ctrl); // tls has a size of 0x1000
+
+int PSP2CLDR_STUB __psp2cldr__internal_call_nid(uint32_t libraryNID, uint32_t functionNID, ...);
+int PSP2CLDR_STUB __psp2cldr__internal_call_sym(const char *target, ...);
 
 #endif
