@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
+#include "common.h"
+
 /* internal routines provided by psp2cldr prior to loading, see psp2cldr's docs. for their usages */
 
 void *PSP2CLDR_STUB __psp2cldr__internal_tls_ctrl(uint32_t ctrl); // tls has a size of 0x1000
