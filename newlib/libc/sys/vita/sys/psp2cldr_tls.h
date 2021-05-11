@@ -9,7 +9,6 @@
 typedef struct
 {
     struct _reent reent;
-    void *pte_data;
 } PSP2CLDR_TLS;
 
 #endif
