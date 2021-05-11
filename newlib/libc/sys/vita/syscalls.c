@@ -60,6 +60,7 @@ _READ_WRITE_RETURN_TYPE PSP2CLDR_STUB _write(int __fd, const void *__buf, size_t
 int PSP2CLDR_STUB _isatty(int fd) { UDF_TRAP; }
 int PSP2CLDR_STUB _gettimeofday(struct timeval *__p, void *__tz) { UDF_TRAP; }
 
+#include <regex.h>
 /* some posix stubs */
 int PSP2CLDR_STUB regcomp(regex_t *__restrict preg, const char *__restrict regex, int cflags) { UDF_TRAP; }
 int PSP2CLDR_STUB regexec(const regex_t *__restrict preg, const char *__restrict string,
