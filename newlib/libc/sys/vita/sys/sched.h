@@ -53,32 +53,6 @@
 
 #include <pte_types.h>
 
-#undef PTE_LEVEL
-
-#if defined(_POSIX_SOURCE)
-#define PTE_LEVEL 0
-/* Early POSIX */
-#endif
-
-#if defined(_POSIX_C_SOURCE) && _POSIX_C_SOURCE >= 199309
-#undef PTE_LEVEL
-#define PTE_LEVEL 1
-/* Include 1b, 1c and 1d */
-#endif
-
-#if defined(INCLUDE_NP)
-#undef PTE_LEVEL
-#define PTE_LEVEL 2
-/* Include Non-Portable extensions */
-#endif
-
-#define PTE_LEVEL_MAX 3
-
-#if !defined(PTE_LEVEL)
-#define PTE_LEVEL PTE_LEVEL_MAX
-/* Include everything */
-#endif
-
 /*
  *
  */
@@ -128,8 +102,5 @@ extern "C"
 #ifdef __cplusplus
 } /* End of extern "C" */
 #endif /* __cplusplus */
-
-#undef PTE_LEVEL
-#undef PTE_LEVEL_MAX
 
 #endif /* !_SCHED_H */

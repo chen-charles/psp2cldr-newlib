@@ -54,17 +54,6 @@
 #if !defined(SEMAPHORE_H)
 #define SEMAPHORE_H
 
-#if defined(_POSIX_SOURCE)
-#define PTE_LEVEL 0
-/* Early POSIX */
-#endif
-
-#if defined(INCLUDE_NP)
-#undef PTE_LEVEL
-#define PTE_LEVEL 2
-/* Include Non-Portable extensions */
-#endif
-
 /*
  *
  */
