@@ -4,6 +4,10 @@
 #include <machine/ieeefp.h>  /* floating point macros */
 #include <sys/features.h>	/* POSIX defs */
 
+#ifdef __vita__
+#define __DYNAMIC_REENT__
+#endif
+
 #ifdef __aarch64__
 #define MALLOC_ALIGNMENT 16
 #endif
