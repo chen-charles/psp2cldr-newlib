@@ -3,21 +3,21 @@
 #include <malloc.h>
 void __malloc_lock(struct _reent *reent)
 {
-    __psp2cldr__internal_call_sym("__malloc_lock");
+    UDF_TRAP;
 }
 
 void __malloc_unlock(struct _reent *reent)
 {
-    __psp2cldr__internal_call_sym("__malloc_unlock");
+    UDF_TRAP;
 }
 
 #include <envlock.h>
 void __env_lock(struct _reent *reent)
 {
-    __psp2cldr__internal_call_sym("__env_lock");
+    UDF_TRAP;
 }
 
 void __env_unlock(struct _reent *reent)
 {
-    __psp2cldr__internal_call_sym("__env_unlock");
+    UDF_TRAP;
 }
