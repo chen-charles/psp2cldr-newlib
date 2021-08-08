@@ -59,3 +59,14 @@ pid_t PSP2CLDR_STUB _wait(int *status) { UDF_TRAP; }
 _READ_WRITE_RETURN_TYPE PSP2CLDR_STUB _write(int __fd, const void *__buf, size_t __nbyte) { UDF_TRAP; }
 int PSP2CLDR_STUB _isatty(int fd) { UDF_TRAP; }
 int PSP2CLDR_STUB _gettimeofday(struct timeval *__p, void *__tz) { UDF_TRAP; }
+
+#include <regex.h>
+/* some posix stubs */
+int PSP2CLDR_STUB regcomp(regex_t *__restrict preg, const char *__restrict regex, int cflags) { UDF_TRAP; }
+int PSP2CLDR_STUB regexec(const regex_t *__restrict preg, const char *__restrict string,
+                          size_t nmatch, regmatch_t pmatch[__restrict], int eflags) { UDF_TRAP; }
+void PSP2CLDR_STUB regfree(regex_t *preg) { UDF_TRAP; }
+int PSP2CLDR_STUB sigprocmask(int how, const sigset_t *set, sigset_t *oldset) { UDF_TRAP; }
+int PSP2CLDR_STUB _mkdir(const char *pathname, mode_t mode) { UDF_TRAP; }
+int PSP2CLDR_STUB _fcntl(int fd, int cmd, ...) { UDF_TRAP; }
+int PSP2CLDR_STUB getentropy(void *buffer, size_t length) { UDF_TRAP; }
