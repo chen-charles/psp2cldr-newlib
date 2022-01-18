@@ -471,7 +471,7 @@ case "${host}" in
 	have_crt0="no"
 	;;
   arm*vita*)
-	newlib_cflags="${newlib_cflags} -D_COMPILING_NEWLIB -D_NO_EXECVE -D_NO_GLOB -D_NO_POPEN -D_NO_POSIX_SPAWN -DHAVE_OPENDIR -DHAVE_NANOSLEEP"
+	newlib_cflags="${newlib_cflags} -D_COMPILING_NEWLIB -D_NO_GLOB -D_NO_POPEN -D_NO_POSIX_SPAWN -DHAVE_OPENDIR -DHAVE_NANOSLEEP -D_NO_WORDEXP"
 	posix_dir=posix
 	sys_dir=vita
 	;;

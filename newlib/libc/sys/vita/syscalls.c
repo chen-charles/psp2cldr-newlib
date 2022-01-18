@@ -66,10 +66,10 @@ int PSP2CLDR_STUB _gettimeofday(struct timeval *__p, void *__tz) { UDF_TRAP; }
 // int PSP2CLDR_STUB regexec(const regex_t *__restrict preg, const char *__restrict string,
 //                           size_t nmatch, regmatch_t pmatch[__restrict], int eflags) { UDF_TRAP; }
 // void PSP2CLDR_STUB regfree(regex_t *preg) { UDF_TRAP; }
-// int PSP2CLDR_STUB sigprocmask(int how, const sigset_t *set, sigset_t *oldset) { UDF_TRAP; }
-// int PSP2CLDR_STUB _mkdir(const char *pathname, mode_t mode) { UDF_TRAP; }
-// int PSP2CLDR_STUB _fcntl(int fd, int cmd, ...) { UDF_TRAP; }
-// int PSP2CLDR_STUB getentropy(void *buffer, size_t length) { UDF_TRAP; }
+int PSP2CLDR_STUB sigprocmask(int how, const sigset_t *set, sigset_t *oldset) { UDF_TRAP; }
+int PSP2CLDR_STUB _mkdir(const char *pathname, mode_t mode) { UDF_TRAP; }
+int PSP2CLDR_STUB _fcntl(int fd, int cmd, ...) { UDF_TRAP; }
+int PSP2CLDR_STUB getentropy(void *buffer, size_t length) { UDF_TRAP; }
 
 // /* some unistd stubs */
 // int usleep(useconds_t usec) { UDF_TRAP; }
