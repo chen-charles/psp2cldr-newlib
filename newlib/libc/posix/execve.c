@@ -8,6 +8,7 @@
 
 #include <unistd.h>
 
+#if 0
 
 int
 execve (const char *path,
@@ -16,5 +17,7 @@ execve (const char *path,
 {
   return _execve (path, argv, envp);
 }
+
+#endif
 
 #endif /* !_NO_EXECVE  */
