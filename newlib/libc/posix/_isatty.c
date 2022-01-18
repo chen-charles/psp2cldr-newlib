@@ -1,4 +1,5 @@
 /* isatty.c */
+#if 0 // conflicts with sysisatty's version
 
 /* Dumb implementation so programs will at least run.  */
 
@@ -19,3 +20,5 @@ _isatty (int fd)
   errno = ENOTTY;
   return 0;
 }
+
+#endif

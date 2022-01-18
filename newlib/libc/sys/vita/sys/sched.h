@@ -84,7 +84,7 @@ extern "C"
 
     int sched_get_priority_max(int policy);
 
-    int sched_setscheduler(pid_t pid, int policy);
+    int sched_setscheduler(pid_t pid, int policy, const struct sched_param *param);
 
     /*
      * Note that this macro returns ENOTSUP rather than
