@@ -7,26 +7,17 @@ extern "C" {
 
 struct __lock
 {
-    int _opaque;
+    int _handle;
 };
 
 typedef struct
 {
-    int dd_fd;		/* directory file */
-    int dd_loc;		/* position in buffer */
-    int dd_seek;
-    char *dd_buf;	/* buffer */
-    int dd_len;		/* buffer length */
-    int dd_size;	/* amount of data in buffer */
-    _LOCK_RECURSIVE_T dd_lock;
+    int _handle;
 } DIR;
 
 struct dirent
 {
     ino_t d_ino;
-    off_t d_off;
-    unsigned short int d_reclen;
-    unsigned char d_type;
     char d_name[256];
 };
 

@@ -57,7 +57,7 @@ int PSP2CLDR_STUB _stat(const char *file, struct stat *st) { UDF_TRAP; }
 clock_t PSP2CLDR_STUB _times(struct tms *buf) { UDF_TRAP; }
 pid_t PSP2CLDR_STUB _wait(int *status) { UDF_TRAP; }
 _READ_WRITE_RETURN_TYPE PSP2CLDR_STUB _write(int __fd, const void *__buf, size_t __nbyte) { UDF_TRAP; }
-// int PSP2CLDR_STUB _isatty(int fd) { UDF_TRAP; }
+int PSP2CLDR_STUB _isatty(int fd) { UDF_TRAP; }
 int PSP2CLDR_STUB _gettimeofday(struct timeval *__p, void *__tz) { UDF_TRAP; }
 
 // #include <regex.h>
@@ -79,14 +79,14 @@ int PSP2CLDR_STUB _gettimeofday(struct timeval *__p, void *__tz) { UDF_TRAP; }
 // int mkdir(const char *pathname, mode_t mode) { UDF_TRAP; }
 // unsigned int sleep(unsigned int seconds) { UDF_TRAP; }
 // int chmod(const char *pathname, mode_t mode) { UDF_TRAP; }
-// int nanosleep(const struct timespec *req, struct timespec *rem) { UDF_TRAP; }
+int nanosleep(const struct timespec *req, struct timespec *rem) { UDF_TRAP; }
 
-// #include <dirent.h>
+#include <dirent.h>
 
-// int            closedir(DIR *dirp) { UDF_TRAP; }
-// DIR           *opendir(const char *name) { UDF_TRAP; }
-// struct dirent *readdir(DIR *dirp) { UDF_TRAP; }
-// int            readdir_r(DIR *dirp, struct dirent *entry, struct dirent **result) { UDF_TRAP; }
-// void           rewinddir(DIR *dirp) { UDF_TRAP; }
-// void           seekdir(DIR *dirp, long int loc) { UDF_TRAP; }
-// long int       telldir(DIR *dirp) { UDF_TRAP; }
+int            closedir(DIR *dirp) { UDF_TRAP; }
+DIR           *opendir(const char *name) { UDF_TRAP; }
+struct dirent *readdir(DIR *dirp) { UDF_TRAP; }
+int            readdir_r(DIR *dirp, struct dirent *entry, struct dirent **result) { UDF_TRAP; }
+void           rewinddir(DIR *dirp) { UDF_TRAP; }
+void           seekdir(DIR *dirp, long int loc) { UDF_TRAP; }
+long int       telldir(DIR *dirp) { UDF_TRAP; }
