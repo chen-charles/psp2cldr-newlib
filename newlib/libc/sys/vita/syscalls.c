@@ -67,7 +67,8 @@ int PSP2CLDR_STUB getentropy(void *buffer, size_t length) { UDF_TRAP; }
 long PSP2CLDR_STUB pathconf(const char *path, int name) { UDF_TRAP; }
 char PSP2CLDR_STUB *getcwd(char *buf, size_t size) { UDF_TRAP; }
 int PSP2CLDR_STUB chdir(const char *path) { UDF_TRAP; }
-int PSP2CLDR_STUB mkdir(const char *pathname, mode_t mode) { UDF_TRAP; }
+int PSP2CLDR_STUB _mkdir(const char *pathname, mode_t mode) { UDF_TRAP; }
+int PSP2CLDR_STUB mkdir(const char *pathname, mode_t mode) { return _mkdir(pathname, mode); }
 int PSP2CLDR_STUB chmod(const char *pathname, mode_t mode) { UDF_TRAP; }
 
 /* we will provide nanosleep so newlib could provide usleep and sleep */
